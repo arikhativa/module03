@@ -1,0 +1,7 @@
+[
+    {
+        "command": "g++    -c -o main.o main.cpp",
+        "directory": "/home/yoav/module03/ex00",
+        "file": "/home/yoav/module03/ex00/main.cpp"
+    }
+]
