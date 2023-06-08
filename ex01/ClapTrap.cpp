@@ -37,14 +37,17 @@ ClapTrap::~ClapTrap()
 
 ClapTrap &				ClapTrap::operator=( ClapTrap const & rhs )
 {
+	_printPrefix() << "Copy assignment operator called.";
 	if ( this != &rhs )
 	{
+		this->_type = rhs._type;
 		this->_name = rhs._name;
 		this->_attackDamage = rhs._attackDamage;
 		this->_energyPoints = rhs._energyPoints;
 		this->_hitPoints = rhs._hitPoints;
+		std::cout << " rhs: [" + rhs._type + "](" + rhs._name + ")";
 	}
-	_printPrefix() << "Copy assignment operator called" << std::endl;
+	std::cout << std::endl;
 	return *this;
 }
 
@@ -54,7 +57,14 @@ ClapTrap &				ClapTrap::operator=( ClapTrap const & rhs )
 
 std::ostream	&ClapTrap::_printPrefix()
 {
-	return std::cout << std::left << std::setw(25) << "[" + _type + "](" + _name + ") ";
+	std::string	t = _type;
+	std::string	n = _name;
+
+	if (t.empty())
+		t = "...";
+	if (n.empty())
+		n = "...";
+	return std::cout << std::left << std::setw(25) << "[" + t + "](" + n + ") ";
 }
 
 bool	ClapTrap::_takeEnergy(void)

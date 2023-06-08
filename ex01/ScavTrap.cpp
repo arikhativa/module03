@@ -6,7 +6,7 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 12:22:29 by yrabby            #+#    #+#             */
-/*   Updated: 2023/06/08 13:24:20 by yrabby           ###   ########.fr       */
+/*   Updated: 2023/06/08 13:42:22 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,17 @@ ScavTrap::~ScavTrap()
 
 ScavTrap &				ScavTrap::operator=( ScavTrap const & rhs )
 {
+	_printPrefix() << "Copy assignment operator called.";
 	if ( this != &rhs )
 	{
+		this->_type = rhs._type;
 		this->_name = rhs._name;
 		this->_hitPoints = rhs._hitPoints;
 		this->_attackDamage = rhs._attackDamage;
 		this->_energyPoints = rhs._energyPoints;
+		std::cout << " rhs: [" + rhs._type + "](" + rhs._name + ")";
 	}
-	_printPrefix() << "Copy assignment operator called" << std::endl;
+	std::cout << std::endl;
 	return *this;
 }
 
