@@ -6,7 +6,7 @@
 #    By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/18 13:56:52 by yrabby            #+#    #+#              #
-#    Updated: 2023/06/08 13:03:56 by yrabby           ###   ########.fr        #
+#    Updated: 2023/06/08 15:28:23 by yrabby           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME 					= test
 
 # class
 CLASS_DIR				= .
-CLASS_NAME				= ClapTrap ScavTrap
+CLASS_NAME				= ClapTrap ScavTrap FragTrap
 
 # other src
 OTHER_SRC				= 

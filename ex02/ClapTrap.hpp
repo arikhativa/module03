@@ -21,6 +21,7 @@ class ClapTrap
 	protected:
 		ClapTrap();
 		bool			_isAlive(void);
+		bool			_takeEnergy(void);
 		std::ostream	&_printPrefix(void);
 
 		std::string		_name;
@@ -28,10 +29,6 @@ class ClapTrap
 		unsigned int	_energyPoints;
 		unsigned int	_attackDamage;
 		std::string		_type;
-
-	private:
-		bool			_takeEnergy(void);
-
 };
 
 #endif /* ******************************************************** CLAPTRAP_H */

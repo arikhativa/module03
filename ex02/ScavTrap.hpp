@@ -6,7 +6,7 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 12:22:24 by yrabby            #+#    #+#             */
-/*   Updated: 2023/06/08 15:10:49 by yrabby           ###   ########.fr       */
+/*   Updated: 2023/06/08 15:24:06 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class ScavTrap : public ClapTrap
 
 		ScavTrap &		operator=( ScavTrap const & rhs );
 
-		void	guardGate();
+		void	guardGate(void);
 
 	private:
 		ScavTrap();
