@@ -67,7 +67,7 @@ void	HPTest(void)
 
 void	energyTest(void)
 {
-	std::cout << "Energy Test:" << std::endl << std::endl;
+	std::cout << "Energy Test:" << std::endl;
 	std::cout << std::endl << " ----- FragTrap ----- " << std::endl << std::endl;
 	{
 		FragTrap sp("Guess");
