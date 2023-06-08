@@ -10,7 +10,7 @@ ClapTrap::ClapTrap()
 }
 
 ClapTrap::ClapTrap(const std::string &name) 
-	: _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0), _type("ClapTrap")
+	: _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
 	_printPrefix() << "Constructor called" << std::endl;
 }
@@ -27,7 +27,6 @@ ClapTrap::ClapTrap( const ClapTrap & src )
 
 ClapTrap::~ClapTrap()
 {
-	this->_type = "ClapTrap";
 	_printPrefix() << "Destructor called" << std::endl;
 }
 
@@ -41,12 +40,11 @@ ClapTrap &				ClapTrap::operator=( ClapTrap const & rhs )
 	_printPrefix() << "Copy assignment operator called.";
 	if ( this != &rhs )
 	{
-		this->_type = rhs._type;
 		this->_name = rhs._name;
 		this->_attackDamage = rhs._attackDamage;
 		this->_energyPoints = rhs._energyPoints;
 		this->_hitPoints = rhs._hitPoints;
-		std::cout << " rhs: [" + rhs._type + "](" + rhs._name + ")";
+		std::cout << " rhs: [ClapTrap](" + rhs._name + ")";
 	}
 	std::cout << std::endl;
 	return *this;
@@ -58,7 +56,7 @@ ClapTrap &				ClapTrap::operator=( ClapTrap const & rhs )
 
 std::ostream	&ClapTrap::_printPrefix(void)
 {
-	return _printPrefix(_type, _name);
+	return _printPrefix("ClapTrap", _name);
 }
 
 std::ostream	&ClapTrap::_printPrefix(const std::string &type, const std::string &name)

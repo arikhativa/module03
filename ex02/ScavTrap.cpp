@@ -6,7 +6,7 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 12:22:29 by yrabby            #+#    #+#             */
-/*   Updated: 2023/06/08 15:11:13 by yrabby           ###   ########.fr       */
+/*   Updated: 2023/06/08 16:07:04 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,13 +74,18 @@ ScavTrap &				ScavTrap::operator=( ScavTrap const & rhs )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-// TODO maybe this func shoulde take energy
 void    ScavTrap::guardGate() {
-	if (_isAlive())
-		_printPrefix() << "activated Gate keeper mode." << std::endl;
-	else
-		_printPrefix() << "is dead. can't activated Gate keeper mode..." << std::endl;
-
+	if (!_isAlive())
+	{
+		_printPrefix() << "is dead. can't  activated Gate keeper mode...." << std::endl;
+		return ;
+	}
+	if (!_takeEnergy())
+	{
+		_printPrefix() << "failed to activated Gate keeper mode. because it has no energy!" << std::endl;
+		return ;
+	}
+	_printPrefix() << "activated Gate keeper mode." << std::endl;
 }
 
 /*

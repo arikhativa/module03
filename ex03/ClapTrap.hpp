@@ -10,7 +10,7 @@ class ClapTrap
 	public:
 		explicit ClapTrap(const std::string &name);
 		ClapTrap( ClapTrap const & src );
-		~ClapTrap();
+		virtual ~ClapTrap();
 
 		ClapTrap &		operator=( ClapTrap const & rhs );
 
@@ -29,7 +29,6 @@ class ClapTrap
 		unsigned int	_hitPoints;
 		unsigned int	_energyPoints;
 		unsigned int	_attackDamage;
-		std::string		_type;
 };
 
 #endif /* ******************************************************** CLAPTRAP_H */

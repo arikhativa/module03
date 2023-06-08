@@ -96,12 +96,23 @@ void	energyTest(void)
 	std::cout << std::endl << " -------- End  ------ " << std::endl << std::endl;
 }
 
+void	pointerDtorTest(void)
+{
+	std::cout << "Constructor Test:" << std::endl;
+	std::cout << std::endl << " ----- ScavTrap ----- " << std::endl << std::endl;
+	{
+		ClapTrap	*trap = new ScavTrap("Hidden!");
+		delete trap;
+	}
+	std::cout << std::endl << " -------- End  ------ " << std::endl << std::endl;
+}
+
 int main( void )
 {
 	simpleTest();
 	ctorTest();
 	HPTest();
 	energyTest();
-
+	pointerDtorTest();
 	return 0;
 }
