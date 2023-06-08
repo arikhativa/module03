@@ -14,7 +14,7 @@ NAME 					= test
 
 # class
 CLASS_DIR				= .
-CLASS_NAME				= Fixed
+CLASS_NAME				= ClapTrap
 
 # other src
 OTHER_SRC				= 

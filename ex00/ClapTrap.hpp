@@ -6,11 +6,8 @@
 
 class ClapTrap
 {
-
 	public:
-
-		ClapTrap();
-		ClapTrap(const std::string &name);
+		explicit ClapTrap(const std::string &name);
 		ClapTrap( ClapTrap const & src );
 		~ClapTrap();
 
@@ -21,15 +18,15 @@ class ClapTrap
 		void	beRepaired(unsigned int amount);
 
 	private:
+		ClapTrap();
+
 		std::string		_name;
 		unsigned int	_hitPoints;
 		unsigned int	_energyPoints;
 		unsigned int	_attackDamage;
 
-		int	_takeEnergy(void);
-
+		bool	_takeEnergy(void);
+		bool	_isAlive(void);
 };
-
-std::ostream &			operator<<( std::ostream & o, ClapTrap const & i );
 
 #endif /* ******************************************************** CLAPTRAP_H */
