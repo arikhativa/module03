@@ -104,7 +104,10 @@ void	ClapTrap::takeDamage(unsigned int amount)
 		_printPrefix() << "is dead. can't lose hit points..." << std::endl;
 		return ;
 	}
-	_hitPoints -= amount;
+	if (_hitPoints < amount)
+		_hitPoints = 0;
+	else
+		_hitPoints -= amount;
 	_printPrefix() << "lost " << amount << " hit points. " << 
 		"current hit points: " << _hitPoints << std::endl;
 	if (0 == _hitPoints)
@@ -124,7 +127,15 @@ void	ClapTrap::beRepaired(unsigned int amount)
 			"because it has no energy!" << std::endl;
 		return ;
 	}
+	unsigned int	tmp = _hitPoints;
 	_hitPoints += amount;
+	if (tmp > _hitPoints)
+	{
+		_hitPoints = -1;
+		_printPrefix() << "gained " << _hitPoints - tmp << " hit points. " << 
+			"current hit points: " << _hitPoints << std::endl;
+		return ;
+	}
 	_printPrefix() << "gained " << amount << " hit points. " << 
 		"current hit points: " << _hitPoints << std::endl;
 }

@@ -27,7 +27,7 @@ void	simpleTest(void)
 
 void	ctorTest(void)
 {
-	std::cout << "Constructor Test:" << std::endl << std::endl;
+	std::cout << "Constructor Test:" << std::endl;
 	std::cout << std::endl << " ----- ClapTrap ----- " << std::endl << std::endl;
 	{
 		ClapTrap	obj("Yellow");
@@ -52,18 +52,24 @@ void	ctorTest(void)
 void	defaultCtorTest(void)
 {
 	// ClapTrap cp;
+	// ScavTrap cp;
 }
 
 void	HPTest(void)
 {
-	ClapTrap cp("McDonalds");
+	std::cout << "Hit points Test:" << std::endl;
+	std::cout << std::endl << " ----- ScavTrap ----- " << std::endl << std::endl;
+	{
+		ScavTrap sp("McDonalds");
 
-	cp.takeDamage(5);
-	cp.beRepaired(1);
-	cp.takeDamage(5);
-	cp.takeDamage(1);
-	cp.attack("Yoda");
-	cp.beRepaired(10);
+		sp.takeDamage(5);
+		sp.beRepaired(1);
+		sp.takeDamage(50000);
+		sp.takeDamage(1);
+		sp.attack("Yoda");
+		sp.beRepaired(10);
+	}
+	std::cout << std::endl << " -------- End  ------ " << std::endl << std::endl;
 }
 
 void	energyTest(void)
@@ -88,12 +94,8 @@ void	energyTest(void)
 int main( void )
 {
 	// simpleTest();
-	ctorTest();
-
-	// std::cout << "Hit points Test:" << std::endl << std::endl;
-	// HPTest();
-	// std::cout << std::endl << " ----- " << std::endl << std::endl;
-
+	// ctorTest();
+	HPTest();
 	// std::cout << "Energy Test:" << std::endl << std::endl;
 	// energyTest();
 	// std::cout << std::endl << " ----- " << std::endl << std::endl;
