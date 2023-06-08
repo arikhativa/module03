@@ -58,6 +58,14 @@ void	defaultCtorTest(void)
 void	HPTest(void)
 {
 	std::cout << "Hit points Test:" << std::endl;
+	std::cout << std::endl << " ----- ClapTrap ----- " << std::endl << std::endl;
+	{
+		ClapTrap cp("Max");
+
+		cp.beRepaired(-20);
+		cp.beRepaired(10);
+		cp.beRepaired(10);
+	}
 	std::cout << std::endl << " ----- ScavTrap ----- " << std::endl << std::endl;
 	{
 		ScavTrap sp("McDonalds");
@@ -68,37 +76,32 @@ void	HPTest(void)
 		sp.takeDamage(1);
 		sp.attack("Yoda");
 		sp.beRepaired(10);
+		sp.guardGate();
 	}
 	std::cout << std::endl << " -------- End  ------ " << std::endl << std::endl;
 }
 
 void	energyTest(void)
 {
-	ClapTrap cp("Guess");
+	std::cout << "Energy Test:" << std::endl << std::endl;
+	{
+		ScavTrap sp("Guess");
 
-	cp.attack("Yoda");
-	cp.attack("Dude");
-	cp.attack("Yona");
-	cp.attack("Glover");
-	cp.attack("Papi");
-	cp.attack("Tiffany");
-	cp.attack("Lulu");
-	cp.attack("Bliss");
-	cp.attack("Age Of Empires");
-	cp.attack("Cub3d");
-	cp.attack("Cub3DD");
-	cp.attack("Cub2D");
-	cp.beRepaired(10);
+		for (int i = 0; i < 50; ++i)
+			sp.attack("Yoda");
+		sp.attack("Yoda");
+		sp.beRepaired(10);
+		sp.guardGate();
+	}
+	std::cout << std::endl << " -------- End  ------ " << std::endl << std::endl;
 }
 
 int main( void )
 {
-	// simpleTest();
-	// ctorTest();
+	simpleTest();
+	ctorTest();
 	HPTest();
-	// std::cout << "Energy Test:" << std::endl << std::endl;
-	// energyTest();
-	// std::cout << std::endl << " ----- " << std::endl << std::endl;
+	energyTest();
 
 	return 0;
 }

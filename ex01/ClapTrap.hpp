@@ -20,6 +20,7 @@ class ClapTrap
 
 	protected:
 		ClapTrap();
+		bool					_isAlive(void);
 		virtual std::ostream	&_printPrefix();
 
 		std::string		_name;
@@ -30,7 +31,6 @@ class ClapTrap
 
 	private:
 		bool				_takeEnergy(void);
-		bool				_isAlive(void);
 
 };
 

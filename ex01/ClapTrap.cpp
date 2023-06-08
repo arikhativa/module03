@@ -127,7 +127,9 @@ void	ClapTrap::beRepaired(unsigned int amount)
 			"because it has no energy!" << std::endl;
 		return ;
 	}
+
 	unsigned int	tmp = _hitPoints;
+
 	_hitPoints += amount;
 	if (tmp > _hitPoints)
 	{
