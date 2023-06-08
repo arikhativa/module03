@@ -1,6 +1,11 @@
 [
     {
-        "command": "g++    -c -o main.o main.cpp",
+        "command": "c++ -c -Wall -Wextra -Werror -std=c++98 -pedantic -I . ClapTrap.cpp -o ClapTrap.o",
+        "directory": "/home/yoav/module03/ex00",
+        "file": "/home/yoav/module03/ex00/ClapTrap.cpp"
+    },
+    {
+        "command": "c++ -c -Wall -Wextra -Werror -std=c++98 -pedantic -I . main.cpp -o main.o",
         "directory": "/home/yoav/module03/ex00",
         "file": "/home/yoav/module03/ex00/main.cpp"
     }

@@ -10,15 +10,15 @@ ClapTrap::ClapTrap()
 }
 
 ClapTrap::ClapTrap(const std::string &name) 
-	: _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
+	: _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0), _type("ClapTrap")
 {
-	std::cout << "Constructor(" << name << ") called" << std::endl;
+	_printPrefix() << "Constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap( const ClapTrap & src )
 {
-	std::cout << "Copy constructor(" << src._name << ") called" << std::endl;
 	*this = src;
+	_printPrefix() << "Copy constructor called" << std::endl;
 }
 
 /*
@@ -27,7 +27,7 @@ ClapTrap::ClapTrap( const ClapTrap & src )
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "Destructor(" << _name << ") called" << std::endl;
+	_printPrefix() << "Destructor called" << std::endl;
 }
 
 
@@ -37,20 +37,35 @@ ClapTrap::~ClapTrap()
 
 ClapTrap &				ClapTrap::operator=( ClapTrap const & rhs )
 {
-	std::cout << "Copy assignment operator (" << rhs._name << ") called" << std::endl;
+	_printPrefix() << "Copy assignment operator called.";
 	if ( this != &rhs )
 	{
+		this->_type = rhs._type;
 		this->_name = rhs._name;
 		this->_attackDamage = rhs._attackDamage;
 		this->_energyPoints = rhs._energyPoints;
 		this->_hitPoints = rhs._hitPoints;
+		std::cout << " rhs: [" + rhs._type + "](" + rhs._name + ")";
 	}
+	std::cout << std::endl;
 	return *this;
 }
 
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
+
+std::ostream	&ClapTrap::_printPrefix()
+{
+	std::string	t = _type;
+	std::string	n = _name;
+
+	if (t.empty())
+		t = "...";
+	if (n.empty())
+		n = "...";
+	return std::cout << std::left << std::setw(25) << "[" + t + "](" + n + ") ";
+}
 
 bool	ClapTrap::_takeEnergy(void)
 {
@@ -69,16 +84,16 @@ void	ClapTrap::attack(const std::string& target)
 {
 	if (!_isAlive())
 	{
-		std::cout << "ClapTrap(" << _name << ") is dead. can't attack..." << std::endl;
+		_printPrefix() << "is dead. can't attack..." << std::endl;
 		return ;
 	}
 	if (!_takeEnergy())
 	{
-		std::cout << "ClapTrap(" << _name << ") failed to attack " << target << 
+		_printPrefix() << "failed to attack " << target << 
 			" because it has no energy!" << std::endl;
 		return ;
 	}
-	std::cout << "ClapTrap(" << _name << ") attacks " << target << 
+	_printPrefix() << "attacks " << target << 
 		", causing " << _attackDamage << " points of damage!" << std::endl;
 }
 
@@ -86,31 +101,44 @@ void	ClapTrap::takeDamage(unsigned int amount)
 {
 	if (!_isAlive())
 	{
-		std::cout << "ClapTrap(" << _name << ") is dead. can't lose hit points..." << std::endl;
+		_printPrefix() << "is dead. can't lose hit points..." << std::endl;
 		return ;
 	}
-	_hitPoints -= amount;
-	std::cout << "ClapTrap(" << _name << ") lost " << amount << " hit points. " << 
+	if (_hitPoints < amount)
+		_hitPoints = 0;
+	else
+		_hitPoints -= amount;
+	_printPrefix() << "lost " << amount << " hit points. " << 
 		"current hit points: " << _hitPoints << std::endl;
 	if (0 == _hitPoints)
-		std::cout << "ClapTrap(" << _name << ") has died!" << std::endl;
+		_printPrefix() << "has died!" << std::endl;
 }
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
 	if (!_isAlive())
 	{
-		std::cout << "ClapTrap(" << _name << ") is dead. can't gain hit points..." << std::endl;
+		_printPrefix() << "is dead. can't gain hit points..." << std::endl;
 		return ;
 	}
 	if (!_takeEnergy())
 	{
-		std::cout << "ClapTrap(" << _name << ") failed to repair " << 
+		_printPrefix() << "failed to repair " << 
 			"because it has no energy!" << std::endl;
 		return ;
 	}
+
+	unsigned int	tmp = _hitPoints;
+
 	_hitPoints += amount;
-	std::cout << "ClapTrap(" << _name << ") gained " << amount << " hit points. " << 
+	if (tmp > _hitPoints)
+	{
+		_hitPoints = -1;
+		_printPrefix() << "gained " << _hitPoints - tmp << " hit points. " << 
+			"current hit points: " << _hitPoints << std::endl;
+		return ;
+	}
+	_printPrefix() << "gained " << amount << " hit points. " << 
 		"current hit points: " << _hitPoints << std::endl;
 }
 

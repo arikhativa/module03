@@ -3,6 +3,7 @@
 
 # include <iostream>
 # include <string>
+# include <iomanip>
 
 class ClapTrap
 {
@@ -19,11 +20,13 @@ class ClapTrap
 
 	private:
 		ClapTrap();
+		std::ostream	&_printPrefix(void);
 
 		std::string		_name;
 		unsigned int	_hitPoints;
 		unsigned int	_energyPoints;
 		unsigned int	_attackDamage;
+		std::string		_type;
 
 		bool	_takeEnergy(void);
 		bool	_isAlive(void);

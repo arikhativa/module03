@@ -20,8 +20,8 @@ class ClapTrap
 
 	protected:
 		ClapTrap();
-		bool					_isAlive(void);
-		virtual std::ostream	&_printPrefix();
+		bool			_isAlive(void);
+		std::ostream	&_printPrefix(void);
 
 		std::string		_name;
 		unsigned int	_hitPoints;
@@ -30,7 +30,7 @@ class ClapTrap
 		std::string		_type;
 
 	private:
-		bool				_takeEnergy(void);
+		bool			_takeEnergy(void);
 
 };
 
