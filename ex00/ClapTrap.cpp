@@ -55,7 +55,7 @@ ClapTrap &				ClapTrap::operator=( ClapTrap const & rhs )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-std::ostream	&ClapTrap::_printPrefix()
+std::ostream	&ClapTrap::_printPrefix(void)
 {
 	std::string	t = _type;
 	std::string	n = _name;

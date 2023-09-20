@@ -6,7 +6,7 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 12:22:29 by yrabby            #+#    #+#             */
-/*   Updated: 2023/06/08 15:37:45 by yrabby           ###   ########.fr       */
+/*   Updated: 2023/09/20 15:41:43 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,17 +56,8 @@ ScavTrap::~ScavTrap()
 
 ScavTrap &				ScavTrap::operator=( ScavTrap const & rhs )
 {
-	_printPrefix() << "Copy assignment operator called.";
 	if ( this != &rhs )
-	{
-		this->_type = rhs._type;
-		this->_name = rhs._name;
-		this->_hitPoints = rhs._hitPoints;
-		this->_attackDamage = rhs._attackDamage;
-		this->_energyPoints = rhs._energyPoints;
-		std::cout << " rhs: [" + rhs._type + "](" + rhs._name + ")";
-	}
-	std::cout << std::endl;
+		ClapTrap::operator=(rhs);
 	return *this;
 }
 
@@ -77,7 +68,7 @@ ScavTrap &				ScavTrap::operator=( ScavTrap const & rhs )
 void    ScavTrap::guardGate() {
 	if (!_isAlive())
 	{
-		_printPrefix() << "is dead. can't  activated Gate keeper mode...." << std::endl;
+		_printPrefix() << "is dead. can't activated Gate keeper mode...." << std::endl;
 		return ;
 	}
 	if (!_takeEnergy())

@@ -6,7 +6,7 @@
 #    By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/18 13:56:52 by yrabby            #+#    #+#              #
-#    Updated: 2023/06/08 17:16:35 by yrabby           ###   ########.fr        #
+#    Updated: 2023/09/20 15:19:21 by yrabby           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,7 @@ OBJ						= $(SRC:.cpp=.o)
 
 # flags
 CC 						= c++
-CFLAGS 					= -c -Wshadow -Wall -Wextra -Werror -std=c++98 -pedantic -I $(HEAD_DIR)
+CFLAGS 					= -c -Wshadow -Wall -Wextra -Werror -std=c++98  -I $(HEAD_DIR)
 
 # implicit rules
 $(addprefix $(OBJ_DIR)/, %.o): $(addprefix $(SRC_DIR)/, %.cpp) $(HEAD)

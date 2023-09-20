@@ -35,7 +35,6 @@ void	ctorTest(void)
 		ClapTrap	obj3(obj);
 
 		obj2 = obj;
-		obj = obj;
 	}
 	std::cout << std::endl << " ----- ScavTrap ----- " << std::endl << std::endl;
 	{
@@ -44,7 +43,6 @@ void	ctorTest(void)
 		ScavTrap	sp3(sp);
 
 		sp2 = sp;
-		sp = sp;
 	}
 	std::cout << std::endl << " -------- End  ------ " << std::endl << std::endl;
 }

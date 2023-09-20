@@ -31,7 +31,7 @@ void	HPTest(void)
 	cp.takeDamage(5);
 	cp.beRepaired(1);
 	cp.takeDamage(5);
-	cp.takeDamage(1);
+	cp.takeDamage(10);
 	cp.attack("Yoda");
 	cp.beRepaired(10);
 }
