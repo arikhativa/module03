@@ -6,7 +6,7 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 15:23:48 by yrabby            #+#    #+#             */
-/*   Updated: 2023/06/08 15:24:03 by yrabby           ###   ########.fr       */
+/*   Updated: 2023/09/20 15:54:12 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class FragTrap : public ClapTrap
 	public:
 		FragTrap( FragTrap const & src );
 		explicit FragTrap(const std::string &name);
-		~FragTrap();
+		virtual ~FragTrap();
 
 		FragTrap &		operator=( FragTrap const & rhs );
 

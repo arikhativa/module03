@@ -6,7 +6,7 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 12:22:29 by yrabby            #+#    #+#             */
-/*   Updated: 2023/09/20 15:41:43 by yrabby           ###   ########.fr       */
+/*   Updated: 2023/09/20 15:56:24 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 */
 
 ScavTrap::ScavTrap()
+	: ClapTrap()
 {
 	std::cout << "Default constructor called" << std::endl;
 }

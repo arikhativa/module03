@@ -28,7 +28,6 @@ void	ctorTest(void)
 		FragTrap	sp3(sp);
 
 		sp2 = sp;
-		sp = sp;
 	}
 	std::cout << std::endl << " -------- End  ------ " << std::endl << std::endl;
 }

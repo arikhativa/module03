@@ -38,7 +38,6 @@ void	ctorTest(void)
 		trap2 = trap;
 		trap.whoAmI();
 		trap2.whoAmI();
-		trap = trap;
 		std::cout << std::endl << " ----- Assign test end ----- " << std::endl << std::endl;
 	}
 	std::cout << std::endl << " -------- End  ------ " << std::endl << std::endl;
